@@ -1,0 +1,84 @@
+clear stack
+set char-encoding UTF-8
+echo >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+echo NOUNS
+echo >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+source arb-nouns.xfst
+echo >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+echo VERBS
+echo >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+source arb-verbs.xfst
+echo >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+define digits [%0|1|2|3|4|5|6|7|8|9];
+define Numbers digits+ [["+noun" "+card"]:0];
+read regex < arb-Alphabet.txt
+define Alphabet
+define forTrans [
+"^ss^" -> [] ,
+"^se^" -> []
+]
+.o.
+["[" -> [] ]
+.o.
+["]" -> [] ]
+;
+define forMWE [
+"^ss^" -> "[" ,
+"^se^" -> "]"
+];
+define clUpperIntermedLang [
+["+masc" -> 0 || _ "+fem",,
+"+masc" -> 0 || _ "+masc",,
+"+fem" -> 0 || _ "+fem",,
+"+fem" -> 0 || _ "+masc"
+]
+.o.
+[
+"^orig" Alphabet "^orig" -> [], 
+"^dbl" digits "^dbl" -> []
+]
+.o.
+[
+"^orig" -> [], 
+"^dbl" -> [], 
+"^remya^" -> [] , 
+"rrr" -> [] ,
+"+token" -> %@
+]
+.o.
+[%@ -> [] || _ %@ , .#. _ ]
+];
+
+define marktokens [
+[
+"+token" -> %@
+]
+.o.
+[%@ -> [] || _ %@ , .#. _ ]
+];
+define cltokens [
+%@ -> [],
+"+token" -> []
+]
+;
+define remExtras [
+[
+%@ -> "+token"
+]
+.o.
+[
+"+token" -> [] || _ "+token" , .#. _ 
+]
+];
+
+! define remCashida
+source arb-remcashida.txt
+
+echo >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+echo GUESSER
+echo >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+read regex [ArbNounsG.i | ArbVerbsG.i] .o. clUpperIntermedLang;
+define ArabicGuesser
+read regex [ArabicGuesser  .o. "ـ" -> [] .o. "^ss^" -> [] .o. "^se^" -> []].i .o. "+token" -> [] .o. "+pl" -> [] .o. "+dual" -> []  .o. "+defArt" -> [] .o. "ـ" -> [] .o. "^ss^" -> [] .o. "^se^" -> [];
+save stack ArabicGuesser.fst
+clear stack

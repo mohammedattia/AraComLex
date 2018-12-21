@@ -1,0 +1,569 @@
+! Arabic Function Words
+Multichar_Symbols
++prep
++conj
++subord
++part
++int
++demon
++prox
++dist
++verb
++modal
++rel
++det
++quant
++adv
++acc
++nom
++pron
++1pers
++2pers
++3pers
++fut
++sg
++dual
++pl
++fem
++masc
++neg
++token
++objcon
++confirm
++subAcc
++human
++inhuman
++comp
++xcomp
++MWE
++uncommon
++advprep
+^ss^ ! stem start, intermediate language for the purpose of assimilation 
+^se^ ! stem end, intermediate language for the purpose of assimilation
+^dbl
+@U.COMPPRON.YES@
+@U.COMPPRON.NO@
+@U.NUMBER.SG@
+@U.NUMBER.DUAL@
+@U.NUMBER.PL@
+@U.CASE.NOM@
+@U.CASE.GEN@
+@U.FI.ON@
+@U.FI.OFF@
+
+LEXICON Root
++conj:0					Conjunctions;
+					Variety1;
+
+LEXICON Conjunctions
+						IndependentConjunctions;
+^ss^وـ^se^					PreVariety1;
+^ss^فـ^se^				PreVariety1;
+
+LEXICON IndependentConjunctions
+^ss^أو^se^				WordEnd;
+^ss^ثم^se^				WordEnd;
+^ss^أم^se^					WordEnd;
+^ss^بل^se^				WordEnd;
+^ss^إما^se^				WordEnd;
+! ^ss^لكن^se^^dbl3^dbl			OptPronoun;
+! ^ss^حتى^se^				WordEnd;
+! ^ss^لا^se^				WordEnd;
+
+LEXICON PreVariety1
++token			Variety1;
+
+LEXICON Variety1
++prep@U.CASE.GEN@:0@U.CASE.GEN@	Prepositions;
++part:0					Particles;
++verb+modal:0				Modals;
+					Nedaa;
++pron+int:0				PronQuestionWords;
++part+int:0				PartQuestionWords;
++pron:0					Pronouns;
++adv:0					FixedAdverbs;
++conj+subord:0				ConjSub;
+					Variety2;
+
+LEXICON Pronouns 
++nom+1pers+sgأنا:^ss^أنا^se^			WordEnd;
++nom+1pers+plنحن:^ss^نحن^se^		WordEnd;
++nom+2pers+sg+mascأنت:^ss^أنت^se^		WordEnd;
++nom+2pers+sg+femأنت:^ss^أنت^se^		WordEnd;
++nom+2pers+dualأنتما:^ss^أنتما^se^		WordEnd;
++nom+2pers+pl+mascأنتم:^ss^أنتم^se^		WordEnd;
++nom+2pers+pl+femأنتن:^ss^أنتن^se^		WordEnd;
++nom+3pers+sg+mascهو:^ss^هو^se^		WordEnd;
++nom+3pers+sg+femهي:^ss^هي^se^		WordEnd;
++nom+3pers+dualهما:^ss^هما^se^		WordEnd;
++nom+3pers+pl+mascهم:^ss^هم^se^		WordEnd;
++nom+3pers+pl+femهن:^ss^هن^se^		WordEnd;
+
+! ضمائر النصب المنفصلة
++acc+1pers+sgأنا:^ss^إياي^se^			WordEnd;
++acc+1pers+plنحن:^ss^إيانا^se^			WordEnd;
++acc+2pers+sg+mascأنت:^ss^إياك^se^		WordEnd;
++acc+2pers+sg+femأنت:^ss^إياك^se^		WordEnd;
++acc+2pers+dualأنتما:^ss^إياكما^se^		WordEnd;
++acc+2pers+pl+mascأنتم:^ss^إياكم^se^		WordEnd;
++acc+2pers+pl+femأنتن:^ss^إياكن^se^		WordEnd;
++acc+3pers+sg+mascهو:^ss^إياه^se^		WordEnd;
++acc+3pers+sg+femهي:^ss^إياها^se^		WordEnd;
++acc+3pers+dualهما:^ss^إياهما^se^		WordEnd;
++acc+3pers+pl+mascهم:^ss^إياهم^se^		WordEnd;
++acc+3pers+pl+femهن:^ss^إياهن^se^		WordEnd;
+
+LEXICON Nedaa
++art:^ss^يا^se^				WordEnd;
+
+LEXICON PronQuestionWords
+^ss^ماذا^se^				WordEnd;
+^ss^من^se^				WordEnd;
+^ss^لماذا^se^				WordEnd;
+^ss^متى^se^				WordEnd;
+^ss^أين^se^				WordEnd;
+^ss^كم^se^				WordEnd;
+^ss^كيف^se^				WordEnd;
+^ss^أي^se^				WordEnd;
+!^ss^لم^se^				WordEnd;
+!^ss^ألم^se^				WordEnd;
+
+LEXICON PartQuestionWords
+^ss^هل^se^				WordEnd;
+
+LEXICON FixedAdverbs
+! ظروف المكان
+^ss^هنا^se^				WordEnd;
+^ss^هناك^se^				WordEnd;
+^ss^هنالك^se^				WordEnd;
+
+! ظروف الزمان
+^ss^الآن^se^				WordEnd;
+^ss^اليوم^se^				WordEnd;
+^ss^يوماً^se^				WordEnd;
+^ss^نهار^se^				WordEnd;
+^ss^غداً^se^				WordEnd;
+^ss^أمس^se^				WordEnd;
+^ss^بالأمس^se^				WordEnd;
+^ss^نهاراً^se^				WordEnd;
+^ss^مؤخراً^se^				WordEnd;
+^ss^مراراً^se^				WordEnd;
+^ss^مساء^se^				WordEnd;
+^ss^الليلة^se^				WordEnd;
+^ss^حينذاك^se^				WordEnd;
+^ss^آنذاك^se^				WordEnd;
+^ss^حينئذ^se^				WordEnd;
+^ss^عادة^se^				WordEnd;
+^ss^دائماً^se^				WordEnd;
+^ss^أبداً^se^				WordEnd;
+^ss^نادراً^se^				WordEnd;
+^ss^غالباً^se^				WordEnd;
+^ss^قليلاً^se^				WordEnd;
+^ss^كثيراً^se^				WordEnd;
+^ss^دوماً^se^				WordEnd;
+^ss^لاحقاً^se^				WordEnd;
+^ss^مؤقتاً^se^				WordEnd;
+^ss^فوراً^se^				WordEnd;
+^ss^مؤخراً^se^				WordEnd;
+^ss^مطلقاً^se^				WordEnd;
+^ss^نادراً^se^				WordEnd;
+^ss^مباشرة^se^				WordEnd;
+^ss^يومياً^se^				WordEnd;
+
+! MISC
+^ss^إذ^se^					WordEnd;
+^ss^بالتالي^se^				WordEnd;
+^ss^ربما^se^				WordEnd;
+
+^ss^سواء^se^				WordEnd;
+^ss^سرعان^se^				WordEnd;
+^ss^عنوة^se^				WordEnd;
+^ss^طواعية^se^				WordEnd;
+^ss^فجأة^se^				WordEnd;
+^ss^فحسب^se^				WordEnd;
+^ss^البتة^se^				WordEnd;
+^ss^كما^se^				WordEnd;
+
+^ss^حتمياً^se^				WordEnd;
+^ss^بتاتاً^se^				WordEnd;
+^ss^تماماً^se^				WordEnd;
+^ss^مجاناً^se^				WordEnd;
+^ss^مجدداً^se^				WordEnd;
+^ss^قسراً^se^				WordEnd;
+^ss^هدراً^se^				WordEnd;
+^ss^تحديداً^se^				WordEnd;
+^ss^تقريباً^se^				WordEnd;
+^ss^فصاعداً^se^				WordEnd;
+^ss^طوعاً^se^				WordEnd;
+^ss^معاً^se^				WordEnd;
+^ss^مثلاً^se^				WordEnd;
+^ss^أيضاً^se^				WordEnd;
+^ss^حيناً^se^				WordEnd;
+^ss^جميعاً^se^				WordEnd;
+^ss^حتماً^se^				WordEnd;
+^ss^جداً^se^				WordEnd;
+^ss^جاهداً^se^				WordEnd;
+^ss^تقريباً^se^				WordEnd;
+^ss^عموماً^se^				WordEnd;
+^ss^سوياً^se^				WordEnd;
+^ss^غالباً^se^				WordEnd;
+^ss^ختاماً^se^				WordEnd;
+^ss^تاماً^se^				WordEnd;
+^ss^شكراً^se^				WordEnd;
+^ss^قطعياً^se^				WordEnd;
+^ss^تباعاً^se^				WordEnd;
+^ss^تقريباً^se^				WordEnd;
+^ss^تماماً^se^				WordEnd;
+^ss^جداً^se^				WordEnd;
+^ss^جدياً^se^				WordEnd;
+^ss^سوياً^se^				WordEnd;
+^ss^معاً^se^				WordEnd;
+^ss^نسبياً^se^				WordEnd;
+^ss^قدماً^se^				WordEnd;
+^ss^أياً^se^				WordEnd;
+
+! with prepositions
+^ss^فضلاً^se^				WordEnd;
+^ss^تمشياً^se^				WordEnd;
+^ss^تبعاً^se^				WordEnd;
+^ss^تحسباً^se^				WordEnd;
+^ss^طبقاً^se^				WordEnd;
+^ss^وفقاً^se^				WordEnd;
+
+! ظروف تأخذ حرف الجر ب و ال التعريف
+^ss^بالذات^se^				WordEnd;
+^ss^بالضبط^se^				WordEnd;
+^ss^بالطبع^se^				WordEnd;
+^ss^بالكامل^se^				WordEnd;
+^ss^بالفعل^se^				WordEnd;
+^ss^بالأخص^se^				WordEnd;
+
+! ظروف تأخذ حرف الجر ب ويلحقها ظمير وصل
+^ss^بمفرده^se^				WordEnd;
+^ss^برمته^se^				WordEnd;
+
+! ظروف تأخذ حروف جز غير الباء
+^ss^كالمعتاد^se^				WordEnd;
+^ss^للتو^se^				WordEnd;
+
+LEXICON ConjSub
+^ss^حين^se^				WordEnd;
+^ss^عندما^se^				WordEnd;
+^ss^طالما^se^				WordEnd;
+^ss^حينما^se^				WordEnd;
+^ss^عندئذ^se^				WordEnd;
+^ss^بعدما^se^				WordEnd;
+^ss^بينما^se^				WordEnd;
+^ss^أينما^se^				WordEnd;
+^ss^حيثما^se^				WordEnd;
+^ss^حيث^se^				WordEnd;
+^ss^بحيث^se^				WordEnd;
+^ss^حسبما^se^				WordEnd;
+^ss^ريثما^se^				WordEnd;
+
+LEXICON Prepositions
++advprep:0				Prepositionals;
+
+^ss^لـ^se^					AttachedWord;
+^ss^كـ^se^@U.COMPPRON.NO@		AttachedWord;
+^ss^بـ^se^				AttachedWord;
+^ss^من^se^				OptPronoun;
+^ss^إلى^se^				OptPronoun;
+@U.FI.ON@^ss^في^se^			OptPronoun;
+^ss^عن^se^				OptPronoun;
+^ss^على^se^				OptPronoun;
+^ss^مع^se^				OptPronoun;
+^ss^حتى^se^				WordEnd;
+^ss^منذ^se^				WordEnd;
+^ss^لدى^se^				OptPronoun;
+
+LEXICON Prepositionals
+^ss^نحو^se^				OptPronoun;
+^ss^بين^se^				OptPronoun;
+! ظروف المكان
+^ss^أمام^se^				OptPronoun;
+^ss^خلف^se^				OptPronoun;
+^ss^وراء^se^				OptPronoun;
+^ss^فوق^se^				OptPronoun;
+^ss^تحت^se^				OptPronoun;
+^ss^عند^se^				OptPronoun;
+^ss^مع^se^				OptPronoun;
+^ss^أسفل^se^				OptPronoun;
+^ss^أعلى^se^				OptPronoun;
+^ss^حول^se^				OptPronoun;
+^ss^وسط^se^				OptPronoun;
+^ss^داخل^se^				OptPronoun;
+^ss^خارج^se^				OptPronoun;
+^ss^صوب^se^				OptPronoun;
+^ss^عبر^se^				WordEnd;
+^ss^ثمة^se^				WordEnd;
+^ss^قبالة^se^				WordEnd;
+^ss^تلو^se^				OptPronoun;
+^ss^شمال^se^				WordEnd;
+^ss^شرق^se^				WordEnd;
+^ss^غرب^se^				WordEnd;
+^ss^جنوب^se^				WordEnd;
+^ss^جنوبي^se^				WordEnd;
+
+^ss^قبل^se^				OptPronoun;
+^ss^بعد^se^				OptPronoun;
+^ss^قرب^se^				OptPronoun;
+^ss^بقرب^se^				OptPronoun;
+^ss^بالقرب^se^				OptPronoun;
+^ss^إزاء^se^				OptPronoun;
+
+^ss^جانب^se^				OptPronoun;
+^ss^بجانب^se^				OptPronoun;
+^ss^تجاه^se^				OptPronoun;
+^ss^باتجاه^se^				OptPronoun;
+
+! ظروف الزمان
+^ss^خلال^se^				OptPronoun;
+^ss^أثناء^se^				OptPronoun;
+^ss^يوم^se^				WordEnd;
+^ss^عام^se^				WordEnd;
+^ss^سنة^se^				WordEnd;
+^ss^ليلة^se^				WordEnd;
+^ss^مساء^se^				WordEnd;
+^ss^صبيحة^se^				WordEnd;
+^ss^فجر^se^				WordEnd;
+^ss^وقت^se^				WordEnd;
+^ss^لحظة^se^				WordEnd;
+^ss^ساعة^se^				WordEnd;
+^ss^غداة^se^				WordEnd;
+^ss^عشية^se^				WordEnd;
+^ss^عقب^se^				WordEnd;
+^ss^قبيل^se^				WordEnd;
+^ss^فور^se^				WordEnd;
+^ss^طيلة^se^				WordEnd;
+
+^ss^إبان^se^				WordEnd;
+^ss^إثر^se^				WordEnd;
+^ss^عقب^se^				WordEnd;
+^ss^قبل^se^				OptPronoun;
+^ss^بعد^se^				OptPronoun;
+^ss^قرب^se^				OptPronoun;
+
+! MISC
+^ss^مثل^se^				OptPronoun;
+^ss^ضد^se^				OptPronoun;
+^ss^دون^se^				OptPronoun;
+! ^ss^لدى^se^				OptPronoun;
+^ss^رغم^se^				WordEnd;
+^ss^بالرغم^se^				WordEnd;
+^ss^جراء^se^				WordEnd;
+^ss^بحسب^se^				WordEnd;
+^ss^حسب^se^				WordEnd;
+^ss^حوالي^se^				WordEnd;
+^ss^لحوالي^se^				WordEnd;
+^ss^بحوالي^se^				WordEnd;
++MWE^ss^منها^se^:^ss^منها^se^				WordEnd;
+^ss^منهم^se^				WordEnd;
+^ss^زهاء^se^				WordEnd;
+^ss^دونما^se^				WordEnd;
+^ss^حيال^se^				WordEnd;
+^ss^سوى^se^				WordEnd;
+^ss^شريطة^se^				WordEnd;
+^ss^شتى^se^				WordEnd;
+^ss^بشتى^se^				WordEnd;
+^ss^وفق^se^				WordEnd;
+^ss^قرابة^se^				WordEnd;
+
+! Adverb of purpose
+^ss^بغية^se^				WordEnd;
+
+LEXICON AttachedWord
++token					Variety2;
+@U.COMPPRON.YES@+token		CompoundPronoun;
+
+LEXICON Variety2
++demon:0				Demonstratives;
++rel:0					Relatives;
++det+quant:0					Quantitives;
++part+subAcc^ss^أن^se^:^ss^أن^se^^dbl2^dbl			OptPronoun;
+! ضمير الشأن
++MWE+part^ss^أنه^se^:^ss^أنه^se^			WordEnd;
+
+LEXICON Demonstratives
+^ss^+prox+masc+sgهذا^se^:^ss^هذا^se^					WordEnd;
+^ss^+prox+fem+sgهذه^se^:^ss^هذه^se^					WordEnd;
+^ss^+prox+masc+dualهذان^se^@U.CASE.NOM@:^ss^هذان^se^@U.CASE.NOM@	WordEnd;
+^ss^+prox+masc+dualهذين^se^:^ss^هذين^se^				WordEnd;
+^ss^+prox+fem+dualهاتان^se^@U.CASE.NOM@:^ss^هاتان^se^@U.CASE.NOM@	WordEnd;
+^ss^+prox+fem+dualهاتين^se^:^ss^هاتين^se^				WordEnd;
+^ss^+prox+plهؤلاء^se^:^ss^هؤلاء^se^					WordEnd;
+^ss^+dist+masc+sgذلك^se^:^ss^ذلك^se^					WordEnd;
+^ss^+dist+masc+sgذاك^se^:^ss^ذاك^se^					WordEnd;
+^ss^+dist+fem+sgتلك^se^:^ss^تلك^se^					WordEnd;
+^ss^+dist+plأولئك^se^:^ss^أولئك^se^					WordEnd;
+
+LEXICON Relatives
++masc+sg^ss^الذي^se^:^ss^الذي^se^					WordEnd;
++fem+sg^ss^التي^se^:^ss^التي^se^					WordEnd;
++masc+dual^ss^اللذان^se^@U.CASE.NOM@:^ss^اللذان^se^@U.CASE.NOM@	WordEnd;
++masc+dual^ss^اللذين^se^:^ss^اللذين^se^					WordEnd;
++fem+dual^ss^اللتان^se^@U.CASE.NOM@:^ss^اللتان^se^@U.CASE.NOM@	WordEnd;
++fem+dual^ss^اللتين^se^:^ss^اللتين^se^					WordEnd;
++human+masc+pl^ss^الذين^se^:^ss^الذين^se^					WordEnd;
++human+fem+pl^ss^اللات^se^:^ss^اللات^se^					WordEnd;
++human+fem+pl^ss^اللاتي^se^:^ss^اللاتي^se^					WordEnd;
++human+fem+pl^ss^اللواتي^se^:^ss^اللواتي^se^					WordEnd;
++human+fem+pl^ss^اللوات^se^:^ss^اللوات^se^					WordEnd;
+
+! الأسماء الموصولة
++sg^ss^ما^se^:^ss^ما^se^						WordEnd;
+^ss^من^se^							WordEnd;
+
+LEXICON Quantitives
+! ألفاظ التوكيد
+^ss^كل^se^				OptPronoun;
+^ss^كلا^se^@U.NUMBER.DUAL@		OptPronoun;
+^ss^كلتا^se^@U.NUMBER.DUAL@		OptPronoun;
+^ss^نفس^se^				OptPronoun;
+^ss^جميع^se^				OptPronoun;
+^ss^معظم^se^				OptPronoun;
+^ss^غالب^se^				OptPronoun;
+^ss^عامة^se^				OptPronoun;
+^ss^جل^se^				OptPronoun;
+
+^ss^بعض^se^				OptPronoun;
+^ss^عدة^se^				WordEnd;
+^ss^بضع^se^				WordEnd;
+^ss^بضعة^se^				WordEnd;
+^ss^أكثر^se^				OptPronoun;
+^ss^أغلب^se^				OptPronoun;
+
+^ss^أي^se^				OptPronoun;
+^ss^أية^se^				WordEnd;
+
+! PRE-NOMINAL ADJECTIVES
+^ss^مجرد^se^				WordEnd;
+^ss^محض^se^				WordEnd;
+
+LEXICON Negation
+! حروف النفي
+^ss^ما^se^				WordEnd;
+^ss^لم^se^					WordEnd;
+^ss^لن+fut^se^:^ss^لن^se^			WordEnd;
+! من أخوات إن
+^ss^لا^se^					WordEnd; 
+^ss^بلا^se^				WordEnd;
+^ss^بلى^se^				WordEnd;
+^ss^ألا^se^				WordEnd;
+
+
+LEXICON Particles
++neg:0					Negation;
+! إن وأخواتها
++confirm+subAcc^ss^إن^se^:^ss^إن^se^^dbl2^dbl	OptPronoun;
+! moved
+!+subAcc^ss^أن^se^:^ss^أن^se^^dbl2^dbl				OptPronoun;
+^ss^كأن^se^^dbl2^dbl			OptPronoun;
+^ss^لكن^se^^dbl2^dbl			OptPronoun;
+^ss^ليت^se^				OptPronoun;
+^ss^لعل^se^				OptPronoun;
+
+! حروف الاستثناء
+^ss^إلا^se^				WordEnd;
+^ss^غير^se^				OptPronoun;
+^ss^سوى^se^				OptPronoun;
+^ss^عدا^se^				OptPronoun;
+
+! حروف الاستقبال
+^ss^سوف+fut^se^:^ss^سوف^se^		WordEnd;
+
+! أن المصدرية
++comp+subAcc^ss^أن^se^:^ss^أن^se^^dbl2^dbl		WordEnd;
+
+! إن مقول القول
++comp+subAcc^ss^إن^se^:^ss^إن^se^^dbl2^dbl		WordEnd;
+
+^ss^كي^se^				WordEnd;
+^ss^لكي^se^				WordEnd;
+
+^ss^قد^se^				WordEnd;
+
+^ss^كما^se^				WordEnd;
+
+! أدوات الشرط
+^ss^لو^se^				WordEnd;
+^ss^إذا^se^				WordEnd;
+^ss^إن^se^				WordEnd;
+
+
+^ss^إما^se^				WordEnd;
+^ss^إنما^se^				WordEnd;
+
+! Misc
+^ss^لأن^se^:^ss^لأن^se^^dbl3^dbl			OptPronoun;
+^ss^بأن^se^:^ss^بأن^se^^dbl3^dbl			OptPronoun;
+^ss^ألا^se^				WordEnd;
+^ss^بألا^se^				WordEnd;
+^ss^بم^se^				WordEnd;
+^ss^بما^se^				WordEnd;
+^ss^عما^se^				WordEnd;
+^ss^عمن^se^				WordEnd;
+^ss^فيما^se^				WordEnd;
+^ss^كذا^se^				WordEnd;
+^ss^لئلا^se^				WordEnd;
+^ss^لابد^se^				WordEnd;
+^ss^لاسيما^se^				WordEnd;
+^ss^لذا^se^				WordEnd;
+^ss^لقد^se^				WordEnd;
+^ss^لما^se^				WordEnd;
+^ss^لولا^se^				WordEnd;
+^ss^مثلما^se^				WordEnd;
+^ss^مما^se^				WordEnd;
+^ss^ممن^se^				WordEnd;
+^ss^مهما^se^				WordEnd;
+^ss^نعم^se^				WordEnd;
+^ss^هكذا^se^				WordEnd;
+^ss^اللهم^se^				WordEnd;
+
+! Multi-Word Expressions
+^ss^بمثابة^se^				WordEnd;
+^ss^بمجرد^se^				WordEnd;
+^ss^بواسطة^se^				WordEnd;
+
+
+LEXICON Modals
+! من أخوات كان
+^ss^عسى^se^				OptPronoun;
+
+^ss^بئس^se^				WordEnd;
+^ss^بئست^se^				WordEnd;
+^ss^نعم^se^				WordEnd;
+^ss^نعمت^se^				WordEnd;
+
+^ss^أمكن^se^				OptPronoun;
+^ss^يمكن^se^				OptPronoun;
+
+LEXICON OptPronoun
++token				CompoundPronoun;
+					WordEnd;
+
+LEXICON WordEnd
++token					#;
+
+LEXICON CompoundPronoun
+! clitic objects
+!1pers
+ـي+objcon+1pers+sg@U.NUMBER.SG@@U.FI.OFF@:ـي@U.NUMBER.SG@@U.FI.OFF@	MarkCompound;
+ـنا+objcon+1pers+pl:ـنا							MarkCompound;
+
+!2pers
+ـك+objcon+2pers+sg+masc@U.NUMBER.SG@:ـك@U.NUMBER.SG@				MarkCompound;
+ـك+objcon+2pers+sg+fem@U.NUMBER.SG@:ـك@U.NUMBER.SG@				MarkCompound;
+ـكم+objconم+2pers+pl+masc@U.NUMBER.PL@:ـكم@U.NUMBER.PL@				MarkCompound;
+ـكن+objcon+2pers+pl+fem@U.NUMBER.PL@:ـكن@U.NUMBER.PL@			MarkCompound;
+ـكما+objcon+2pers+dual:ـكما							MarkCompound;
+
+!3pers
+ـها+objcon+3pers+sg+fem@U.NUMBER.SG@:ـها@U.NUMBER.SG@			MarkCompound;
+ـه+objcon+3pers+sg+masc@U.NUMBER.SG@:ـه@U.NUMBER.SG@				MarkCompound;
+ـهما+objcon+3pers+dual:ـهما							MarkCompound;
+ـهم+objcon+3pers+pl+masc@U.NUMBER.PL@:ـهم@U.NUMBER.PL@			MarkCompound;
+ـهن+objcon+3pers+pl+fem@U.NUMBER.PL@:ـهن@U.NUMBER.PL@			MarkCompound;
+
+LEXICON MarkCompound				
++token								#;

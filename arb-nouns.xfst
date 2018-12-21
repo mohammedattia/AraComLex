@@ -1,0 +1,46 @@
+clear stack
+!define TestWord
+source arb-Alphabet.txt
+define Alphabet
+define PossNounStem [[Alphabet]^{2,24}] "+Guess":0;
+source arb-NounAssim.txt
+define NounAssim
+source arb-NounAssimGuess.txt
+define NounAssimGuess
+define clIntermedLang [
+"^ss^" -> [] ,
+"+fem" -> [] ,
+"+masc" -> [] ,
+"+acc" -> [] ,
+"+accgen" -> [] ,
+"+dual" -> [] ,
+"+pl" -> [] ,
+"+defArt" -> [] ,
+"^remya^" -> [] ,
+"^se^" -> []
+];
+echo ">>> compile lexc"
+read lexc < arb-nouns-lexc.txt
+echo ">>> eliminate flags"
+eliminate flag ART
+eliminate flag CMPND
+eliminate flag CASE
+eliminate flag VERBAL
+echo ">>> substitute defined"
+substitute defined PossNounStem for "^GUESSNOUNSTEM^"
+define AllInclusive
+echo ">>> create attested"
+read regex ~$["+Guess"] .o. AllInclusive .o. NounAssim  .o. clIntermedLang;
+!read regex ~$["+Guess"] .o. AllInclusive .o. NounAssim  .o. TestWord .o. clIntermedLang;
+!save stack arbf-NounAttested.fst
+define ArbNouns
+regex [[ArbNouns .o. $["rrr"] ] "+uncommon":0] .o. "rrr" -> [];
+define rare
+regex ArbNouns .o. ~$["rrr"];
+define common
+define ArbNouns [rare | common];
+echo ">>> create guesser"
+read regex $["+Guess"] .o. AllInclusive .o. NounAssimGuess;
+!save stack arbf-NounGuesser.fst
+define ArbNounsG
+clear stack

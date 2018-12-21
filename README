@@ -1,0 +1,53 @@
+#-------------------------------------------------------------------------------
+# This file is part of AraComLex: a finite-state morphological transducer for
+# Arabic.
+# 
+# Copyright (c) 2008-2018 Mohammed Attia
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+#-------------------------------------------------------------------------------
+
+Running AraComLex
+
+
+1 INTRODUCTION
+
+This is a shell that can run on Windows, Linux or Mac
+
+2 HOW TO RUN
+
+a. Download and unzip the AraComLex file.
+b. Download the foma version that best relates to your operating system from http://foma.sourceforge.net/
+c. Have the AraComLex files and the foma compiler on the same folder
+d. Run foma from the command line "./foma". On Windows just double click on foma.exe
+e. Run "source 01ArabicTransducer.xfst" in the command line to compile the Arabic finite state network. 
+   After the compilation is finished, you will have a new file named "ArabicTransducer.fst"
+f. To test the file, you can run the following commands:
+   load ArabicTransducer.fst
+   up كتاب
+
+   To exit foma, type:
+   exit
+g. You can test a complete file written in Arabic script in UTF-8 using the foma lookup command
+   (Windows)		flookup.exe ArabicTransducer.fst < test-arb.txt > test-arb-out.txt
+   (Linux/Mac OS) 	./flookup ArabicTransducer.fst < test-arb.txt > test-arb-out.txt
+The file test-arb.txt is in the UNIX file format, encoding utf-8. It works fine with Linux and Mac OS X. With Windows, the only editorƒ I know that can write in this format is "textpad" which you can download from the internet. I tried with notepad and wordpad but they damage the file.
+
+3. Using the guesser
+    Run:
+	source 01BArabicGuesser.xfst
+	load ArabicGuesser.fst
+	up والمتسوقون
+   You can also use with with flookup as explained above
+   

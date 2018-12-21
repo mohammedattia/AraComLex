@@ -1,0 +1,15 @@
+كاتب	+noun+humanكاتب+masc+sg@
+كاتب	+verb+past+active{كاتَب}+3pers+sg+masc@
+عرف	+noun+inhumanعرف+masc+sg@
+عرف	+verb+past+activeعرف+3pers+sg+masc@
+شكر	+noun+inhumanشكر+masc+sg@
+شكر	+verb+past+activeشكر+3pers+sg+masc@
+انهار	+verb+past+activeانهار+3pers+sg+masc@
+استعلم	+verb+past+active{اِسْتَعْلَم}+3pers+sg+masc@
+استعلى	+verb+past+active{اِسْتَعْلَى}+3pers+sg+masc@
+استعرب	+verb+past+active{اِسْتَعْرَب}+3pers+sg+masc@
+وزراء	+noun+humanوزير+masc+pl@
+رئيس	+noun+humanرئيس+masc+sg@
+شفقة	+noun+inhuman{شَفَقَة}+fem+sg@
+شفاعة	+noun+inhuman{شَفاعَة}+fem+sg@
+اشتقاق	+noun+inhuman{اِشْتِقاق}+masc+sg@

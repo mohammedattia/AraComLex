@@ -1,0 +1,61 @@
+clear stack
+set char-encoding UTF-8
+!read regex < arb-TestWord.txt
+!define TestWord
+source arb-Alphabet.txt
+define Alphabet
+define PossVerbStem [[Alphabet]^{2,6}] "+Guess":0;
+source arb-VerbAssim1.txt
+define VerbAssim1
+source arb-VerbAssim2.txt
+define VerbAssim2
+source arb-VerbAssim3.txt
+define VerbAssim3
+define VerbAssim VerbAssim1 .o. VerbAssim2 .o. VerbAssim3;
+define cl1 [? -> 0 || "^orig" _ "^orig",,
+? -> 0 || "^dbl" _ "^dbl"
+];
+
+define clIntermedLang [
+"^ss^" -> [] ,
+"^se^" -> [] ,
+"+fem" -> [],
+"+masc" -> [],
+"+imp" -> [],
+"+pres" -> [],
+"+pass" -> [],
+"+past" -> [],
+"^orig" -> [],
+"^dbl" -> [],
+"^comprep^" -> [],
+"+1pers" -> [] ,
+"+2pers" -> [] ,
+[1|2|3|4|5|6|7|8|9] -> [] ,
+"+3pers" -> [] ];
+
+echo ">>> compile lexc"
+read lexc < arb-verbs-lexc.txt
+echo ">>> eliminate flags"
+eliminate flag T
+! eliminate flag V
+eliminate flag M
+eliminate flag PERS
+eliminate flag CASE
+eliminate flag TRANS
+eliminate flag SENSE
+eliminate flag CONJ
+echo ">>> substitute defined"
+substitute defined PossVerbStem for "^GUESSVERBSTEM^"
+define AllInclusive
+echo ">>> create attested"
+read regex ~$["+Guess"] .o. AllInclusive .o. VerbAssim  .o. cl1 .o. clIntermedLang;
+!read regex ~$["+Guess"] .o. AllInclusive .o. VerbAssim  .o. TestWord .o. cl1 .o. clIntermedLang;
+!compile-replace lower
+!save stack arbf-VerbAttested.fst
+define ArbVerbs
+echo ">>> create guesser"
+read regex $["+Guess"] .o. AllInclusive .o. VerbAssim .o. cl1 .o. clIntermedLang;
+!save stack arbf-VerbGuesser.fst
+define ArbVerbsG
+clear stack
+

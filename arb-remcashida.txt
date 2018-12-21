@@ -1,0 +1,1 @@
+define remCashida ["ـ" -> 0];

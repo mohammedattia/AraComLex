@@ -1,0 +1,32 @@
+clear stack
+!read regex < arb-TestWord.txt
+!define TestWord
+source arb-Alphabet.txt
+define Alphabet
+source arb-FNWordsAssim.txt
+define FNWordAssim
+define clIntermedLang [
+"^ss^" -> [] ,
+"^dbl" [1|2|3|4|5|6] "^dbl" -> [],
+"^se^" -> []
+];
+define UpperIntermedLang [
+"^se^" -> "^se^" "+token"
+];
+echo ">>> compile lexc"
+read lexc < arb-fnwords-lexc.txt
+echo ">>> eliminate flags"
+eliminate flag COMPPRON
+eliminate flag NUMBER
+eliminate flag CASE
+eliminate flag FI
+define AllInclusive
+echo ">>> create fst"
+read regex AllInclusive .o. FNWordAssim .o. clIntermedLang;
+!read regex AllInclusive .o. FNWordAssim .o. TestWord .o. clIntermedLang;
+define AllInclusive
+read regex [AllInclusive.i .o. UpperIntermedLang].i;
+!save stack arbf-FNWords.fst
+define ArbFNWords
+clear stack
+

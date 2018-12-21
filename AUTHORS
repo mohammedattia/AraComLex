@@ -1,0 +1,17 @@
+(c) 2008-2015 Mohammed Attia
+
+Notes:
+
+Most of the code in this package was originally written for Xerox FSM.
+
+It was repackaged in 2011 for release under a free/open-source license for foma.
+
+Mohammed Attia wrote the rules and collected the lexicon.
+
+Josef van Genabith helped with ideas for the testing and evaluation of the system
+
+Pavel Pecina helped with the machine learning experiments to add more lexical items
+
+Antonio Toral helped with the database structure
+
+Lamia Tounsi helped with the pattern collection
